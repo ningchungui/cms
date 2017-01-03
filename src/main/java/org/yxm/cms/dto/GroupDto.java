@@ -1,4 +1,4 @@
-package org.yxm.cms.controller;
+package org.yxm.cms.dto;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.yxm.cms.model.Group;

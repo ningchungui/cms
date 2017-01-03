@@ -1,4 +1,4 @@
-package org.yxm.cms;
+package org.yxm.cms.dto;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;

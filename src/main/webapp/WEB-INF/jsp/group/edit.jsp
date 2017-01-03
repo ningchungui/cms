@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-theme.min.css">
   <script src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.min.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-multiselect.css">
+
 </head>
 <body>
 
@@ -35,7 +38,10 @@
 
     <div class="form-group">
       <label>选择权限</label> <br>
-      <sf:checkboxes path="pids" items="${permissions}" itemLabel="name" itemValue="id"/>
+      <%--<sf:checkboxes path="pids" items="${permissions}" itemLabel="name" itemValue="id"/>--%>
+
+      <sf:select path="pids" items="${permissions}" itemLabel="name" itemValue="id"
+                 id="example-post" multiple="multiple"/>
     </div>
 
     <div class="form-group">
@@ -43,5 +49,15 @@
     </div>
   </sf:form>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example-post').multiselect({
+      includeSelectAllOption: true,
+      enableFiltering: true
+    });
+  });
+</script>
+
 </body>
 </html>

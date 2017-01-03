@@ -47,10 +47,16 @@
   </div>
 
   <div class="col-md-10">
-    <iframe src="${pageContext.request.contextPath}/admin/defaultPage" width="100%" height="0" id="frame_content"
+    <%--<iframe src="${pageContext.request.contextPath}/admin/defaultPage" width="100%" height="600px" id="frame_content"
             scrolling="no" name="content" frameborder="0"
             onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+    </iframe>--%>
+
+    <iframe src="${pageContext.request.contextPath}/admin/defaultPage" width="100%" id="frame_content"
+            name="content" frameborder="0"
+            onload="reinitframe()">
     </iframe>
+
   </div>
 </div>
 
@@ -60,15 +66,15 @@
     var iframe = document.getElementById("frame_content");
     try {
       var bHeight = iframe.contentWindow.document.body.scrollHeight;
-      var dHeight = iframe.contentWindow.docuemnt.documentElement.scrollHeight;
+      var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
       var height = Math.max(bHeight, dHeight);
+
       iframe.height = height;
     }
     catch (ex) {
-
+      alert(ex);
     }
   }
-  window.setInterval("reinitframe()", 200);
 </script>
 </body>
 </html>

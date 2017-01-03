@@ -15,6 +15,9 @@
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrapValidator.min.css">
   <script src="${pageContext.request.contextPath}/resources/js/bootstrapValidator.min.js"></script>
+
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-multiselect.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-multiselect.css">
 </head>
 <body>
 
@@ -81,12 +84,16 @@
 
     <div class="form-group">
       <label>选择权限</label> <br>
-      <sf:checkboxes path="pids" items="${permissions}" itemLabel="name" itemValue="id"/>
+      <%--<sf:checkboxes path="pids" items="${permissions}" itemLabel="name" itemValue="id"/>--%>
+      <sf:select path="pids" items="${permissions}" itemLabel="name" itemValue="id"
+                 id="select-pids" multiple="multiple"/>
     </div>
 
     <div class="form-group">
       <label>选择角色组</label> <br>
-      <sf:checkboxes path="gids" items="${groups}" itemLabel="name" itemValue="id"/>
+      <%--<sf:checkboxes path="gids" items="${groups}" itemLabel="name" itemValue="id"/>--%>
+      <sf:select path="gids" items="${groups}" itemLabel="name" itemValue="id"
+                 id="select-gids" multiple="multiple"/>
     </div>
 
     <div class="form-group">
@@ -130,5 +137,19 @@
     })
   });
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#select-pids').multiselect({
+      includeSelectAllOption: true,
+      enableFiltering: true
+    });
+    $('#select-gids').multiselect({
+      includeSelectAllOption: true,
+      enableFiltering: true
+    });
+  });
+</script>
+
 </body>
 </html>

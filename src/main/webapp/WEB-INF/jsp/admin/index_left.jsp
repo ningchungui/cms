@@ -37,6 +37,10 @@
       </li>
     </ul>
   </li>
+  <li>
+    <a target="content" href="${pageContext.request.contextPath}/admin/page/pages"><i
+      class="fa fa-bar-chart-o fa-fw"></i>页面管理</a>
+  </li>
 </ul>
 
 <%--<script src="${pageContext.request.contextPath}/resources/sb-admin/vendor/jquery/jquery.min.js"></script>--%>
